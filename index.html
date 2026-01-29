@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijar  | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light Mode Colors */
+            --main-color: #2C3E50;
+            --accent-color: #E74C3C;
+            --bg-color: #ECF0F1;
+            --text-color: #2C3E50;
+            --card-bg: #FFFFFF;
+            --transition: 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Colors */
+            --bg-color: #1A252F;
+            --text-color: #ECF0F1;
+            --card-bg: #2C3E50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color var(--transition), color var(--transition);
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Theme Toggle --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(236, 240, 241, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(26, 37, 47, 0.8);
+        }
+
+        .theme-switch {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), 
+                        url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.3s forwards;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.6s forwards;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* --- About Section --- */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .lang-tags {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--main-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .sns-links {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .sns-links a {
+            color: var(--main-color);
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .sns-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="font-weight: bold; font-size: 1.2rem;">MS DESIGN</div>
+        <div class="theme-switch" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Colors + Logic.<br>Designs Magic.</h1>
+        <p>色彩検定1級の知識と確かなコーディング技術で、企業の思いを「伝わる」形に。CVR向上に貢献するWEBデザインを提供します。</p>
+        <div class="cta-group">
+            <a href="#about" class="btn btn-primary">実績を見る</a>
+            <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="about-content">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mijar&baseColor=f5f5f5" alt="Mijar Sabin" class="profile-img">
+            <div class="about-text">
+                <h2>Who I am</h2>
+                <p>はじめまして、WEBデザイナーの <strong>Mijar Sabin</strong> です。</p>
+                <p>栃木県のTBC学院で2年間、WEBデザインを勉強してきました。現在はフリーランスとして東京で活動しています。</p>
+                <div class="lang-tags">
+                    <span class="tag">日本語 (JLPT:N1)</span>
+                    <span class="tag">English</span>
+                    <span class="tag">Español</span>
+                    <span class="tag">Hindi</span>
+                    <span class="tag">Nepali</span>
+                </div>
+                <p style="margin-top: 15px;">InternationalなWEBページ作成が可能です。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="contact">
+            <h2>Get in Touch</h2>
+            <p style="margin-bottom: 30px;">制作のご依頼、お見積り、その他のご相談はお気軽にどうぞ。2営業日以内に返信します。</p>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-user"></i> Mijar Sabin</p>
+                <p><i class="fas fa-envelope"></i> mijars418@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 090-9763-1251</p>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="お名前" required>
+                <input type="email" placeholder="メールアドレス" required>
+                <textarea rows="5" placeholder="お問い合わせ内容" required></textarea>
+                <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">送信する</button>
+            </form>
+
+            <div class="sns-links">
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 20px; font-size: 0.8rem; color: #888;">
+        &copy; 2024 Mijar Sabin All Rights Reserved.
+    </footer>
+
+    <script>
+        // --- Theme Toggle Function ---
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // --- Simple Scroll Animation ---
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 1s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
