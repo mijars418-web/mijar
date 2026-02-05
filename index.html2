@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>offline | 圏外でも繋がる次世代通信</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --accent-color: #00D4FF;
+            --bg-dark: #0a0a0a;
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 100px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--accent-color);
+        }
+
+        /* PASONA Sections */
+        .problem-box {
+            background: #151515;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ff4b2b;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, min-minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: #222;
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .btn-buy {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 122, 255, 0.5);
+        }
+
+        .urgency {
+            margin-top: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .btn-buy { width: 80%; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>offline</h1>
+            <p class="subtitle">「圏外」は、もう言い訳にならない。<br>網（ネットワーク）がなくても、大切な人と繋がる唯一の選択。</p>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>こんな経験はありませんか？</h2>
+            <div class="problem-box">
+                <ul>
+                    <li>楽しみにしていたキャンプ場、気づけばスマホは「圏外」。</li>
+                    <li>災害時、一番声を届けたい相手と連絡がつかない恐怖。</li>
+                    <li>地下やライブ会場、人混みで友達とはぐれた時の絶望感。</li>
+                </ul>
+            </div>
+            <p style="text-align: center; margin-top: 30px;">
+                スマホを持っているのに、繋がらない。そんなもどかしさを、私たちは何度も経験してきました。今の時代、通信環境がないことは、まるで世界から孤立してしまったかのような不安を感じさせますよね。
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>次世代通信ソリューション『offline』</h2>
+            <p style="text-align: center; margin-bottom: 40px;">既存のキャリア網やWi-Fiを一切使わず、独自の近接通信テクノロジーで周囲のデバイスと直接リンク。</p>
+            
+            <div class="solution-grid">
+                <div class="feature-card">
+                    <h3>メッシュネットワーク</h3>
+                    <p>ユーザー同士が中継点となり、バケツリレー式にメッセージを届けます。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>超低遅延</h3>
+                    <p>隣にいても、100m離れていても、リアルタイムなやり取りを実現。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>究極の安全</h3>
+                    <p>中央サーバーを通さないため、プライバシーは完全に守られます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container cta-container">
+            <h2>「繋がらない」を「安心」に変える。</h2>
+            <p>今なら、初期設定ガイドと、家族・友人とすぐに始められる「ペアリング・スターターキット」をセットでお届けします。</p>
+            
+            <p class="urgency">※現在の特別価格でのご提供は、今月限定の先行ユーザー枠のみとなっています。</p>
+            
+            <a href="#" class="btn-buy">今すぐ『offline』を購入する</a>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem;">もう、電波を探して歩き回る必要はありません。<br>自由で安全なコミュニケーションを、あなたの手に。</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 offline Project. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
